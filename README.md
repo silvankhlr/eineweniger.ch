@@ -35,9 +35,9 @@ Danach http://localhost:8080 öffnen.
 2. Auf GitHub unter **Settings → Pages**: Source „Deploy from a branch“, Branch `main` und Ordner `/ (root)` wählen.
 3. Bei **Custom domain** `eineweniger.ch` eintragen (die Datei `CNAME` existiert bereits). Wenn das Zertifikat bereit ist, **Enforce HTTPS** aktivieren.
 
-## DNS bei Hostpoint umstellen
+## DNS bei Infomaniak einrichten
 
-Im Hostpoint Control Panel unter Domains → eineweniger.ch → DNS:
+Die Domain und ihre DNS-Zone liegen bei Infomaniak (Nameserver `nsany1/nsany2.infomaniak.com`). Im Infomaniak Manager unter Domains → eineweniger.ch → DNS-Zone folgende Einträge hinzufügen:
 
 | Typ   | Name  | Wert                    |
 |-------|-------|-------------------------|
@@ -51,7 +51,6 @@ Im Hostpoint Control Panel unter Domains → eineweniger.ch → DNS:
 | AAAA  | @     | 2606:50c0:8003::153     |
 | CNAME | www   | silvankhlr.github.io.   |
 
-- Die alten A- und AAAA-Records, die aufs Hostpoint-Webhosting zeigen, entfernen.
-- **MX-Records nicht anfassen**: Die Postfächer `info@` und `admin@eineweniger.ch` laufen weiter über Hostpoint.
-- Optional die Domain in den GitHub-Kontoeinstellungen (Profil → Settings → Pages) verifizieren, damit niemand sonst sie für Pages nutzen kann.
-- Das WordPress-Hosting erst kündigen, wenn die neue Seite unter https://eineweniger.ch läuft. Vorher ein Backup machen.
+- Den bestehenden TXT-Eintrag `v=spf1 -all` stehen lassen.
+- Optional die Domain in den GitHub-Kontoeinstellungen (Profil → Settings → Pages) verifizieren, damit niemand sonst sie für Pages nutzen kann. GitHub nennt dafür einen TXT-Eintrag, der ebenfalls in die DNS-Zone kommt.
+- **E-Mail:** Für eineweniger.ch gibt es aktuell keinen MX-Eintrag, `info@` und `admin@` empfangen also keine Mails. Dafür braucht es einen Maildienst (z. B. bei Infomaniak), der die MX-Einträge setzt.
