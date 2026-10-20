@@ -53,4 +53,4 @@ Die Domain und ihre DNS-Zone liegen bei Infomaniak (Nameserver `nsany1/nsany2.in
 
 - Den bestehenden TXT-Eintrag `v=spf1 -all` stehen lassen.
 - Optional die Domain in den GitHub-Kontoeinstellungen (Profil → Settings → Pages) verifizieren, damit niemand sonst sie für Pages nutzen kann. GitHub nennt dafür einen TXT-Eintrag, der ebenfalls in die DNS-Zone kommt.
-- **E-Mail:** Für eineweniger.ch gibt es aktuell keinen MX-Eintrag, `info@` und `admin@` empfangen also keine Mails. Dafür braucht es einen Maildienst (z. B. bei Infomaniak), der die MX-Einträge setzt.
+- **E-Mail:** `info@eineweniger.ch` läuft über den Mail-Dienst von Infomaniak (MX `mta-gw.infomaniak.ch`, SPF `include:spf.infomaniak.ch`). Diese Einträge nicht entfernen.
